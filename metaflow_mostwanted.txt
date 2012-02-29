@@ -1,0 +1,21 @@
+=============================
+metaflow most wanted:
+-------------------------------------------------------------------
+PRIMARY KEY SUPPORT!
+-------------------------------------------------------------------
+xml minidom adapter for usage as database in ActiveRecord.
+-------------------------------------------------------------------
+wrapper functions to represent types in database.
+-------------------------------------------------------------------
+Owning list descriptions, such as: owned_by, own_one, and own_many.
+-------------------------------------------------------------------
+Object hierarchy capabilities.
+-------------------------------------------------------------------
+ActiveRecord validation of SQL.
+-------------------------------------------------------------------
+enumerate capabilities for classes that inherit from ActiveRecord.
+-------------------------------------------------------------------
+abilities to connect foreign keys to parrent classes.
+-------------------------------------------------------------------
+decorators to be able to save desired class fields without explicitly calling the class save() method, like '@volatile_fileld'(probably not very good idea).
+=============================

@@ -1,0 +1,66 @@
+/* Python code related styles. */
+.python_code
+{
+    text-align:center;
+    border:2px solid;
+    text-align:left;
+    margin:auto;
+    margin-top:20px;
+    margin-bottom:20px;
+    background:#F0F0F0;
+}
+
+/* Used for pythoh keywords. */
+#pkeyword
+{
+    color:#FF8800;
+    font-weight:bold;
+}
+
+/* Used for python builtin. */
+#pbuiltin
+{
+    color:#AA00AA;
+    font-weight:bold;
+}
+
+/* Used for python strings. */
+#pstring
+{
+    color:#AA3333;
+}
+
+/* Used for python user defined types. */
+#putype
+{
+    color:#00AAAA;
+}
+
+/* Used for python variables. */
+#pvariable
+{
+    color:#0055BB;
+}
+/* End of python code related styles. */
+
+.site_banner
+{
+    background:#000000;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.botom_navigation
+{
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.signature
+{
+    bottom:0px;
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>active_records library usage</title>
+    <link rel="stylesheet" type="text/css" href="../css/general_style.css" />
+</head>
+<body>
+
+<div class="site_banner" align=center>
+    <img src="../media/metaflow_banner.jpg" border=0 />
+</div>
+
+<h3 align=center>active_records library usage</h3>
+
+<h5>
+configuration
+</h5>
+
+<h5>
+Using ActiveRecord to make your classes no worry about database connectivity
+</h5>
+
+To set properties of your class depending on table in database, you need
+just to inherit from ActiveRecord class. Assuming that in the database
+there is table 'persons' with fields 'name' which is string, 'age' which is
+integer, 'bird_date' which is date.
+<p>
+Following example will create instance of Person class and try to save it
+as element in underlying database.
+</p>
+
+<pre class="python_code">
+<code>
+<span id="pkeyword">from</span> active_records <span id="pkeyword">import</span> activerecords
+
+<span id="pkeyword">class</span> Person(activerecords.ActiveRecord):
+  <span id="pkeyword">pass</span>
+
+Kosta = Person(name=<span id="pstring">'Kostadin'</span>,
+            age=30,
+            bird_date=<span id="pstring">'1979-10-01'</span>)
+<span id="pkeyword">if</span> Kosta.save():
+  <span id="pbuiltin">print</span>(<span id="pstring">'Element successfully saved in database'</span>)
+<span id="pkeyword">else</span>:
+  <span id="pbuiltin">print</span>(<span id="pstring">'Unable to save element in database'</span>)
+</code>
+</pre>
+
+<p>
+Assuming previous example succeeded, we can create element of Person class
+based on what is available in our database:
+</p>
+
+<pre class="python_code">
+<code>
+Kosta = Person.find(name=<span id="pstring">'Kosta'</span>)
+<span id="pbuiltin">print</span>(Kosta.name, Kosta.age, Kosta.bird_date)
+</code>
+</pre>
+
+<h5>
+TODO: show how to use activerecords inheritance support(when it's implemented).
+</h5>
+
+<h5>
+Using DbGenerator to easyly create tables in your storage
+</h5>
+
+<p>
+<p>
+The metalang of the framework is very simple domain specific language. It
+requires every line of it to describe a single variable of model of some
+class. More this line should start with '@' symbol followed by colon, and
+type definition which is supported by your database of choice(note that
+if type definition is wrong creation of table will fail in the database
+itself).
+</p>
+<pre class="python_code">
+<code>
+<span id="pkeyword">from</span> active_records <span id="pkeyword">import</span> dbgenerator
+
+<span id="pkeyword">class</span> Post(dbgenerator.DbGenerator):
+  __metalang__ = <span id="pstring">'''
+                 @title: string not null
+                 @content: text
+                 '''</span>
+
+post_generator = Post()
+post_generator.table_from_metalang()
+</code>
+</pre>
+<p>
+And now there's a table 'posts' in your database(note: if there's table in
+the database with the required name table_from_metalang() will do nothing).
+By default the name for the table is extracted as follows: first name of
+your class is converted to lowercase, then if it not ends with 's' - one 's'
+is appended to it(for plural), if it ends with 's' - 'es' is appended, and
+that's used for name of the table that will correspond to your class.
+</p>
+</p>
+
+<div class="botom_navigation">
+<a align=left href="./pattern.html">Previous</a>
+<a align=center href="../index.html">Home</a>
+<a align=right href="./details.html">Next</a>
+</div>
+
+<div class="signature">
+Last updated: 26.07.2010
+</div>
+
+</body>
+</html>

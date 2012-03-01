@@ -4,6 +4,10 @@
 #
 # Copyright Kostadin Atanasov(all rights reserved)
 # author: Kostadin Atanasov
+
+# This program is released under terms of GPLv2. See LICENSE or visit:
+# http://www.gnu.org/licenses/gpl.html
+
 '''
 Run specific test which name is supplied as command line argument, or if test
 name is not supplied run all test in test directory and it's subdirectories.

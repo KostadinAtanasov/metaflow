@@ -4,6 +4,10 @@
 #
 # Copyright Kostadin Atanasov(all rights reserved)
 # author: Kostadin Atanasov
+
+# This program is released under terms of GPLv2. See LICENSE or visit:
+# http://www.gnu.org/licenses/gpl.html
+
 '''
 This test should be run after successful run of the test for DbGenerator
 so we can be sure that there's tables 'posts', and 'persons' in the

@@ -20,13 +20,13 @@ and 30 respectively.
 import test_utils
 
 # Import the module that we test.
-from active_records import activerecords
+import metaflow.active_records.activerecords as activerecords
 
 # Import modules that module under test depend for it's functionality.
-from active_records import dbadapter
-from active_records import dbconfig
+from metaflow.active_records import dbadapter
+from metaflow.active_records import dbconfig
 # Import the error modules.
-from active_records.activerecord_utils import ActiveRecordError
+from metaflow.active_records.activerecord_utils import ActiveRecordError
 
 # Import module generated from DbGenerator.
 adapter = dbadapter.DbAdapter('sqlite')

@@ -13,9 +13,13 @@ Module to create database or table in existing database from provided
 string(the string could be pass to function of DbGenerator derived class).
 '''
 
-from meta import metainfo
-from meta import metalang
-from activerecord_utils import ActiveRecordError
+import sys
+if sys.version_info >= (3,):
+    xrange = range
+
+from metaflow.meta import metainfo
+from metaflow.meta import metalang
+from metaflow.active_records.activerecord_utils import ActiveRecordError
 
 class DbGenerator(metainfo.MetaInfo):
     database = None # Instance of DbAdapter class.

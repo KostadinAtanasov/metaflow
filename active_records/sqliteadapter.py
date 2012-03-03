@@ -13,7 +13,7 @@ Module which adapt sqlite database for usage in activeRecords of metaflow.
 '''
 
 import sqlite3
-import dbconfig
+import metaflow.active_records.dbconfig
 
 version = 0.1
 

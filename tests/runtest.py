@@ -13,12 +13,22 @@ Run specific test which name is supplied as command line argument, or if test
 name is not supplied run all test in test directory and it's subdirectories.
 '''
 
-import __init__
 import sys
 import os
-from test_utils import TestError
-from active_records import activerecord_utils
-from test_list import all_tests
+
+# Add metaflow directory to python modules path.
+meta_path = os.path.dirname(os.path.join(os.getcwd(), __file__))
+meta_path = os.path.dirname(os.path.dirname(meta_path))
+if not meta_path in sys.path:
+    sys.path.append(meta_path)
+import metaflow.tests.__init__
+
+from metaflow.tests.test_utils import TestError
+import metaflow.active_records.activerecord_utils as activerecord_utils
+from metaflow.tests.test_list import all_tests
+
+if sys.version_info >= (3,):
+    xrange = range
 
 tests_executed = []
 ignore_list = ['__init__.py', '__init__.pyc', 'runtest.py', 'test_utils.py']
@@ -73,11 +83,6 @@ def do_log(out, msg):
     print(msg)
 
 def main(argv):
-    # Add metaflow directory to python modules path.
-    cur_path = os.path.dirname(os.path.join(os.getcwd(), __file__))
-    meta_path = os.path.dirname(os.path.dirname(cur_path))
-    if not meta_path in sys.path:
-        sys.path.append(meta_path)
     if not argv:
         run_all_tests()
     for module_name in argv:

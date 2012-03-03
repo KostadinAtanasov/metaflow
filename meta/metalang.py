@@ -13,7 +13,11 @@
 
 '''
 
-from active_records.activerecord_utils import ActiveRecordError
+import sys
+if sys.version_info >= (3,):
+    xrange = range
+
+from metaflow.active_records.activerecord_utils import ActiveRecordError
 
 class MetaLang(type):
     @classmethod

@@ -17,7 +17,7 @@ and 30 respectively.
 '''
 
 # Import standard test utilities.
-import test_utils
+import metaflow.tests.test_utils as test_utils
 
 # Import the module that we test.
 import metaflow.active_records.activerecords as activerecords
@@ -32,7 +32,7 @@ from metaflow.active_records.activerecord_utils import ActiveRecordError
 adapter = dbadapter.DbAdapter('sqlite')
 adapter.open_database(dbconfig.DbConfig('testdb.ldb'))
 activerecords.ActiveRecord.database = adapter
-from person import Person
+from metaflow.tests.person import Person
 
 # Class to test setting properties based on table in database
 # by simply inheriting from ActiveRecord.

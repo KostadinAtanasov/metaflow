@@ -12,7 +12,7 @@
 Module which adapt different databases for usage in ActiveRecords.
 '''
 
-from activerecord_utils import ActiveRecordError
+from metaflow.active_records.activerecord_utils import ActiveRecordError
 
 version = 0.1
 
@@ -197,7 +197,7 @@ def make_adapter_impl(dbtype):
     given as argument, raises exception if the given type is not supported.
     '''
     if dbtype == DbAdapter.supported_databases[0]:
-        import sqliteadapter
+        import metaflow.active_records.sqliteadapter as sqliteadapter
         return sqliteadapter.SqliteAdapter()
     else:
         raise DbAdapterError('Unsupported database type requested!')

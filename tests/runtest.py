@@ -73,6 +73,11 @@ def do_log(out, msg):
     print(msg)
 
 def main(argv):
+    # Add metaflow directory to python modules path.
+    cur_path = os.path.dirname(os.path.join(os.getcwd(), __file__))
+    meta_path = os.path.dirname(os.path.dirname(cur_path))
+    if not meta_path in sys.path:
+        sys.path.append(meta_path)
     if not argv:
         run_all_tests()
     for module_name in argv:

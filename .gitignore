@@ -1,2 +1,5 @@
 .eric4project*
 .ropeproject
+*.pyc
+tests/person.py
+tests/testdb.ldb
